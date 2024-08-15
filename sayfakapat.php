@@ -18,6 +18,6 @@ if (!isset($_SESSION['logged_in'])) {
     <title>Sayfa Zaman Aşımı</title>
 </head>
 <body>
-    <h1>Bu sayfa 70 saniye sonra kapanacak</h1>
+    <h1>Bu sayfa 90 saniye sonra kapanacak</h1>
 </body>
 </html>
