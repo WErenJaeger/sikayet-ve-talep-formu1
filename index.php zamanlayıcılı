@@ -7,7 +7,7 @@
     <title>İstek ve Şikayet Formu</title>
     <style>
         #timer{
-            font-size: 48px;
+            font-size: 24px;
             color: #333;
             text-align: center;
             margin-top: 50px;
@@ -24,6 +24,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sofia&display=swap" rel="stylesheet">
 </head>
 <body>
+    <center>
+<img src="/talepsitesi/logo/artalogo.jpg" 
+alt="Arta logosu bulunamadı!" width="400"
+height="250" />
+    </center>
 
     <section class="contact" id="contact">
         <div class="max-width">
@@ -67,6 +72,7 @@
 
 <div id="timer">00:00:00</div>
 
+
     <script>
         let seconds = 0;
         let minutes = 0;
@@ -89,11 +95,12 @@
                     (seconds > 9 ? seconds : "0" + seconds);
             }, 1000);
         }
+        
 
         window.onload = startTimer;
+        
     </script>
-
-<h1>Hoş Geldiniz!</h1>
+    <h1></h1>
     
     <?php
     
@@ -102,6 +109,11 @@
     ?>
     
     <p>Bu sayfa 90 saniye sonra kapanacak.</p>
+    
+    
+
+
+    
     
 </body>
 </html>
