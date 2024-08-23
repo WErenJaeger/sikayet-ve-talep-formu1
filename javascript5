@@ -1,0 +1,66 @@
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("contactForm");
+    const textarea = form.querySelector("textarea[name='mesaj']");
+
+    form.onsubmit = function(event) {
+        event.preventDefault();
+
+        
+        const forbiddenWords = ["amınakoyim", "oç", "piç", "yavşak", "aq", "amk"];
+        const message = textarea.value.toLowerCase();
+
+        for (let word of forbiddenWords) {
+            if (message.includes(word)) {
+                alert(`Mesajınızda uygunsuz kelimeler bulunuyor: ${word}`);
+                return false;
+            }
+        }
+
+        
+        if (!canPost()) {
+            return false;
+        }
+
+        const formData = new FormData(form);
+        
+        fetch('index.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(result => {
+            alert("Mesajınız başarıyla gönderilmiştir.");
+            console.log(result);
+        })
+        .catch(error => {
+            alert("Mesajınız gönderilirken bir hata oluştu.");
+            console.error('Error:', error);
+        });
+
+        return true;
+    };
+});
+
+let postLimit = 2;
+let timeFrame = 3000 * 1; 
+let posts = []; 
+
+function canPost() {
+    let currentTime = Date.now();
+    
+    posts = posts.filter(time => currentTime - time <= timeFrame);
+
+    if (posts.length >= postLimit) {
+        alert("Gönderi limitine ulaştınız. Lütfen daha sonra tekrar deneyin.");
+        return false;
+    } else {
+        posts.push(currentTime);
+        return true;
+    }
+}
+
+function selamVer() {
+    alert('Bu sayfa 1 dakika sonra kapanacaktır.');
+}
+  
+setTimeout(selamVer, 30000);
